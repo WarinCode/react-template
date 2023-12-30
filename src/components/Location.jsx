@@ -4,30 +4,30 @@ import { FaAddressBook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const Address = () => (
-  <address className="flex flex-row w-full items-center justify-evenly flex-wrap capitalize mb-24 font-normal not-italic font-poppins cursor-default">
-    <div className="flex flex-col items-center justify-center text-center p-[30px] bg-slate-100 rounded-lg shadow-xl h-56 w-max duration-300 ease-in-out hover:-translate-y-4">
+  <address className="flex flex-row w-full items-center justify-evenly md:flex-col sm:flex-col md:gap-y-12 sm:gap-y-12 flex-wrap capitalize mb-24 font-normal not-italic font-poppins cursor-default">
+    <div className="flex flex-col items-center justify-center text-center p-[30px] bg-slate-100 rounded-lg shadow-xl h-56 w-max md:w-2/3 sm:w-2/3 duration-300 ease-in-out hover:-translate-y-4">
       <FaPhone className="text-4xl my-4 text-cyan-500" />
-      <p className=" text-lg">
+      <p className=" text-lg sm:text-sm">
         phone : <span className=" uppercase">+1 06x-xxx-xxxx</span>
       </p>
     </div>
-    <div className="flex flex-col items-center justify-center text-center p-[30px] bg-slate-100 rounded-lg shadow-xl leading-7 h-56 w-max duration-300 ease-in-out hover:-translate-y-4">
+    <div className="flex flex-col items-center justify-center text-center p-[30px] bg-slate-100 rounded-lg shadow-xl leading-7 h-56 w-max md:w-2/3 sm:w-2/3 duration-300 ease-in-out hover:-translate-y-4">
       <FaAddressBook className="text-4xl my-4 text-teal-500" />
-      <div className=" text-lg">
+      <div className=" text-lg sm:text-sm">
         <p>
           country : <span className="uppercase">usa</span>
         </p>
       </div>
-      <div className=" text-lg">
+      <div className=" text-lg sm:text-sm">
         <p>address : 2932 Emeral Dreams Drive</p>
       </div>
-      <div className=" text-lg">
+      <div className=" text-lg sm:text-sm">
         <p>city : La Salle</p>
       </div>
     </div>
-    <div className="flex flex-col items-center justify-center text-center p-[30px] bg-slate-100 rounded-lg shadow-xl h-56 w-max duration-300 ease-in-out hover:-translate-y-4">
+    <div className="flex flex-col items-center justify-center text-center p-[30px] bg-slate-100 rounded-lg shadow-xl h-56 w-max md:w-2/3 sm:w-2/3 duration-300 ease-in-out hover:-translate-y-4">
       <MdEmail className="text-5xl my-4 text-emerald-400" />
-      <p className=" text-lg">
+      <p className=" text-lg sm:text-sm">
         email : <span className="lowercase">varin@gmail.com</span>
       </p>
     </div>

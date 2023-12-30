@@ -5,7 +5,7 @@ import { users } from "../data/data";
 const Testimonial = () => {
   return (
     <section
-      className="flex flex-col justify-center h-[500px] w-full bg-no-repeat bg-center saturate-150"
+      className="flex flex-col justify-center h-[500px] w-full bg-no-repeat bg-center saturate-150 mt-20"
       id="testimonial"
     >
       <Slide
@@ -30,11 +30,11 @@ const Testimonial = () => {
                 loading="lazy"
               />
             </div>
-            <div className="text-center font-poppins -mt-6 w-3/4 p-12 capitalize cursor-default">
-              <h2 className="font-bold text-3xl text-slate-100 mb-4">
+            <div className="text-center font-poppins -mt-6 w-3/4 px-12 pt-12 md:px-8 md:pt-8 sm:px-8 sm:pt-8 capitalize cursor-default">
+              <h2 className="font-bold text-3xl lg:text-2xl md:texl-xl sm:text-lg text-slate-100 mb-4">
                 {item.name}
               </h2>
-              <blockquote className=" italic text-lg text-slate-100 opacity-80">
+              <blockquote className=" italic text-lg md:text-sm sm:text-sm text-slate-100 opacity-80">
                 "{item.quotes}"
               </blockquote>
             </div>

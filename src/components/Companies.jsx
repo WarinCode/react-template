@@ -1,12 +1,23 @@
 import { Slide } from "react-slideshow-image";
-
 import { logos } from "../data/data";
 
 const Companies = () => {
   return (
-    <Slide slidesToShow={4} duration={3300} transitionDuration={400} autoplay={true} arrows={false} pauseOnHover={false} infinite={true} canSwipe={false}>
+    <Slide
+      slidesToShow={4}
+      duration={3300}
+      transitionDuration={400}
+      autoplay={true}
+      arrows={false}
+      pauseOnHover={false}
+      infinite={true}
+      canSwipe={false}
+    >
       {logos.map((item) => (
-        <div key={item.id} className="w-[190px] h-[110px] flex items-center justify-center cursor-default">
+        <div
+          key={item.id}
+          className="max-w-[190px] h-[110px] md:max-w-[90px] md:h-[150px] sm:max-w-[70px] sm:h-[120px] flex items-center justify-center cursor-default"
+        >
           <img
             src={item.src}
             alt={item.alt}

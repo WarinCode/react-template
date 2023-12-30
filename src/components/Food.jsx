@@ -7,7 +7,7 @@ const getStars = (n) => {
   for (let i = 1; i <= 5; i++) {
     starts.push(
       <FaStar
-        className={`text-xl me-1 ${
+        className={`text-xl md:text-lg sm:text-sm me-1 ${
           i <= n ? "text-yellow-300" : "text-gray-700"
         }`}
       />
@@ -33,19 +33,19 @@ const Food = ({ img, name, price, alt, rating, number, id }) => (
       />
     </div>
     <div className=" flex-1 font-poppins p-[25px] self-center">
-      <h1 className="text-center text-xl font-bold capitalize text-slate-100 self-start">
+      <h1 className="text-center text-xl md:text-lg sm:text-lg font-bold capitalize text-slate-100 self-start">
         {name}
       </h1>
       <div className="mt-4">
         <hr className="my-3" />
         <div className="w-full flex items-baseline justify-start">
           <span>
-            <MdGeneratingTokens className="text-2xl text-yellow-300 me-2 inline-flex" />
+            <MdGeneratingTokens className="text-2xl md:text-xl sm:text-lg text-yellow-300 me-2 inline-flex" />
           </span>
-          <h3 className="mt-4 text-start text-lg font-bold text-yellow-300 capitalize">
+          <h3 className="mt-4 text-start text-lg md:text-sm sm:text-sm font-bold text-yellow-300 capitalize">
             rating :
           </h3>
-          <span className="ms-4">
+          <span className="ms-2 flex flex-wrap">
             {getStars(rating).map((val, idx) => (
               <p key={idx} className=" inline-flex translate-y-1">
                 {val}
@@ -53,9 +53,9 @@ const Food = ({ img, name, price, alt, rating, number, id }) => (
             ))}
           </span>
         </div>
-        <div className="mt-4 text-start text-lg font-bold text-green-600 capitalize">
+        <div className="mt-4 text-start text-lg md:text-sm sm:text-sm font-bold text-green-600 capitalize">
           <span>
-            <FaMoneyBill className="text-2xl text-green-600 me-2 inline-flex" />
+            <FaMoneyBill className="text-2xl md:text-xl sm:text-lg text-green-600 me-2 inline-flex" />
           </span>
           <span>price :</span> <span className="ms-2">${price}</span>
         </div>

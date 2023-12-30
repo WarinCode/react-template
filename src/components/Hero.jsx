@@ -8,15 +8,15 @@ const Slide1 = () => (
     className="flex flex-col items-start justify-center font-poppins px-[70px]"
     id="bgHero1"
   >
-    <div className="text-white w-[450px] px-4 cursor-default">
-      <h1 className="text-4xl">lEa mollit magna labore eu ex tempor.</h1>
+    <div className="text-white max-w-[450px] min-w-[350px] px-4 cursor-default">
+      <h1 className="text-4xl lg:text-3xl md:text-2xl sm:text-2xl">lEa mollit magna labore eu ex tempor.</h1>
       <p className="text-sm leading-1 mt-6">
         Consequat reprehenderit in aliqua cillum sint officia non est duis. Duis
         quis reprehenderit deserunt magna ea consectetur mollit. Eu magna
         pariatur reprehenderit aute sunt nulla veniam exercitation sit culpa
       </p>
     </div>
-    <div className="inline-flex w-[450px] px-4 mt-9">
+    <div className="inline-flex max-w-[450px] min-w-[350px] px-4 mt-9">
       <Button text={"get started"} style={"w-36 h-12 rounded-md text-center text-slate-50 capitalize font-bold bg-gradient-to-r from-cyan-500 to-blue-500 me-7 duration-150 ease-linear active:scale-95"}/>
       <Button text={"learn more"} style={"w-36 h-12 rounded-md text-center text-slate-50 capitalize bg-transparent border-2 border-slate-50 hover:bg-slate-50 hover:text-black duration-150 ease-linear  active:scale-95 "}/>
     </div>
@@ -28,15 +28,15 @@ const Slide2 = () => (
     className="flex flex-col items-center justify-center font-poppins px-[70px] text-center"
     id="bgHero2"
   >
-    <div className="text-white w-[650px] px-4 cursor-default">
-      <h1 className="text-4xl text-cyan-500">lEa mollit magna labore eu ex tempor.</h1>
+    <div className="text-white max-w-[650px] min-w-[350px] px-4 cursor-default">
+      <h1 className="text-4xl lg:text-3xl md:text-2xl sm:text-2xl">lEa mollit magna labore eu ex tempor.</h1>
       <p className="text-sm leading-1 mt-6">
         Consequat reprehenderit in aliqua cillum sint officia non est duis. Duis
         quis reprehenderit deserunt magna ea consectetur mollit. Eu magna
         pariatur reprehenderit aute sunt nulla veniam
       </p>
     </div>
-    <div className="w-[450px] px-4 mt-9">
+    <div className="max-w-[450px] min-w-[350px] px-4 mt-9">
       <Button text={"get started"} style={"w-60 h-12 rounded-md text-center text-slate-50 capitalize font-bold bg-gradient-to-r from-cyan-500 to-blue-500 me-7 duration-150 ease-linear active:scale-95"}/>
     </div>
   </section>
@@ -47,13 +47,13 @@ const Slide3 = () => (
     className="flex flex-col items-start justify-center font-poppins px-[70px]"
     id="bgHero3"
   >
-    <div className="text-white w-[450px] px-4 cursor-default">
-      <h1 className="text-4xl">
+    <div className="text-white max-w-[450px] min-w-[350px] px-4 cursor-default">
+      <h1 className="text-4xl lg:text-3xl md:text-2xl sm:text-2xl">
         Sint consequat esse veniam cupidatat eu est cupidatat aliquip deserunt
         consectetur.
       </h1>
     </div>
-    <div className="text-white w-[690px] px-4 cursor-default">
+    <div className="text-white max-w-[690px] min-w-[350px] px-4 cursor-default">
     <p className="text-sm leading-1 mt-6">
         Consequat reprehenderit in aliqua cillum sint officia non est duis. Duis
         quis reprehenderit deserunt magna ea consectetur mollit. Eu magna
@@ -74,13 +74,13 @@ const Slide4 = () => (
     className="flex flex-col items-start justify-center font-poppins px-[70px]"
     id="bgHero4"
   >
-    <div className="text-white w-[450px] px-4 cursor-default">
-      <h1 className="text-4xl">
+    <div className="text-white max-w-[450px] min-w-[350px] px-4 cursor-default">
+      <h1 className="text-4xl lg:text-3xl md:text-2xl sm:text-2xl">
         Sint consequat esse veniam cupidatat eu est cupidatat aliquip deserunt
         consectetur.
       </h1>
     </div>
-    <div className="text-white w-[690px] px-4 cursor-default">
+    <div className="text-white max-w-[690px] min-w-[350px] px-4 cursor-default">
     <p className="text-sm leading-1 mt-6">
         Consequat reprehenderit in aliqua cillum sint officia non est duis. Duis
         quis reprehenderit deserunt magna ea consectetur mollit. Eu magna
@@ -98,13 +98,13 @@ const Slide5 = () => (
     className="flex flex-col items-start justify-center font-poppins px-[70px]"
     id="bgHero5"
   >
-    <div className="text-white w-[450px] px-4 cursor-default">
-      <h1 className="text-4xl">
+    <div className="text-white max-w-[450px] min-w-[350px] px-4 cursor-default">
+      <h1 className="text-4xl lg:text-3xl md:text-2xl sm:text-2xl">
         Sint consequat esse veniam cupidatat eu est cupidatat aliquip deserunt
         consectetur.
       </h1>
     </div>
-    <div className="text-white w-[690px] px-4 cursor-default">
+    <div className="text-white max-w-[690px] min-w-[350px] px-4 cursor-default">
     <p className="text-sm leading-1 mt-6">
         Consequat reprehenderit in aliqua cillum sint officia non est duis. Duis
         quis reprehenderit

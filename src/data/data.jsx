@@ -338,7 +338,7 @@ export const users = [
 ];
 
 let iconStyle2 =
-  "text-xl mx-auto text-white duration-150 ease-in hover:text-sky-400 cursor-pointer";
+  "text-xl md:text-lg sm:text-lg mx-auto text-white duration-150 ease-in hover:text-sky-400 cursor-pointer";
 export const socials = [
   {
     icon: <FaFacebookSquare className={iconStyle2} />,
