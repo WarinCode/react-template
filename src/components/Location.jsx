@@ -38,9 +38,9 @@ const Map = () => (
   <iframe
     className="w-full h-[400px] m-auto border-none"
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52968775.950329944!2d-161.8571003364465!3d35.87455794658833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2z4Liq4Lir4Lij4Lix4LiQ4Lit4LmA4Lih4Lij4Li04LiB4Liy!5e0!3m2!1sth!2sth!4v1703911611457!5m2!1sth!2sth"
-    allowfullscreen="true"
+    allowFullScreen={true}
     loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
+    referrerPolicy="no-referrer-when-downgrade"
   ></iframe>
 );
 

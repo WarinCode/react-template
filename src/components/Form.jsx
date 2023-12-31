@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Button from "./Button";
-import img from "../assets/bg/neven-myst-EFVuZbNYbG8-unsplash.jpg";
+import img from "../assets/bg/juli-kosolapova-EU-F64WOqD8-unsplash.jpg";
 
 const Form = () => {
   const [firstname, setFirstname] = useState(null);
@@ -10,11 +10,11 @@ const Form = () => {
   const formRef = useRef();
   const message = useRef();
 
-  const api = "http://localhost:4000/api/sendData";
+  const api = import.meta.env.VITE_BACKEND_API.concat('/sentData')
 
   return (
-    <section className="flex w-full lg:flex-col md:flex-col sm:flex-col items-center font-poppins shadow-2xl">
-      <div className="w-1/2 flex-shrink-0 lg:w-full md:w-full sm:w-full">
+    <section className="flex w-full h-max lg:flex-col md:flex-col sm:flex-col items-stretch font-poppins shadow-2xl">
+      <div className="w-1/2 h-full lg:w-full md:w-full sm:w-full">
         <img
           src={img}
           className="w-full h-full"
@@ -22,13 +22,13 @@ const Form = () => {
         />
       </div>
       <form
-        action={api}
         method="post"
-        className="w-1/2 lg:w-full md:w-full sm:w-full lg:-mt-1 md:-mt-1 sm:-mt-1 text-slate-100 flex flex-col capitalize p-[40px] tracking-wide bg-slate-950"
+        action={api}
+        className="w-1/2 lg:w-full md:w-full sm:w-full flex flex-col justify-center lg:-mt-1 md:-mt-1 sm:-mt-1 text-slate-100 capitalize p-[40px] tracking-wide bg-slate-950"
         ref={formRef}
       >
         <div>
-          <header className="text-center mt-4 mb-8 text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold">
+          <header className="text-center mb-12 text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold">
             sent message
           </header>
         </div>
@@ -44,9 +44,9 @@ const Form = () => {
               name="firstname"
               className=" outline-none border-none w-full h-10 text-lg rounded-md p-6 caret-black text-black placeholder:capitalize"
               required
-              autoSave={false}
+              autoSave={"false"}
               spellCheck={false}
-              autoComplete={false}
+              autoComplete={"false"}
               onChange={(e) => setFirstname(e.target.value)}
             />
           </span>
@@ -59,11 +59,11 @@ const Form = () => {
               placeholder="lastname"
               id="lastname"
               name="lastname"
-              className=" outline-none border-none w-full h-10 text-lg rounded-md p-6 border-2 border-rose-500 caret-black text-black placeholder:capitalize"
+              className=" outline-none border-none w-full h-10 text-lg rounded-md p-6 caret-black text-black placeholder:capitalize"
               required
-              autoSave={false}
+              autoSave={"false"}
               spellCheck={false}
-              autoComplete={false}
+              autoComplete={"false"}
               onChange={(e) => setLastname(e.target.value)}
             />
           </span>
@@ -77,11 +77,11 @@ const Form = () => {
             placeholder="email"
             id="email"
             name="email"
-            className="outline-none border-none w-3/4 h-10 text-lg rounded-md p-6 border-2 border-gray-500 caret-black text-black placeholder:capitalize"
+            className="outline-none border-none w-3/4 h-10 text-lg rounded-md p-6 caret-black text-black placeholder:capitalize"
             required
-            autoSave={false}
+            autoSave={"false"}
             spellCheck={false}
-            autoComplete={false}
+            autoComplete={"false"}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>

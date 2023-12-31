@@ -1,20 +1,19 @@
-import { socials } from "../data/data";
-import uuid from "react-uuid"
+import { socials, company, products, global } from "../data/data";
+import uuid from "react-uuid";
 
 import googleplay from "../assets/download/google-play-badge.png";
 import appstore from "../assets/download/download-on-the-app-store-apple-logo-svgrepo-com.svg";
 
-const company = [
-  "about us",
-  "our offerings",
-  "newsroom",
-  "investors",
-  "blog",
-  "carers",
-  "AI",
-];
-const products = ["ride", "drive", "eat"];
-const global = ["safety", "diversity and inclusion"];
+const Item = ({ id, text }) => (
+  <li
+    key={id()}
+    className="text-sm mb-3 indent-2 duration-300 ease-in hover:translate-x-2"
+  >
+    <a href="#" className="hover:text-sky-400 duration-300 ease-in">
+      {text}
+    </a>
+  </li>
+);
 
 // Ref: https://www.datocms-assets.com/48294/1611758037-2-footer-web-from-uber.jpg?auto=format
 const Footer = () => (
@@ -29,11 +28,7 @@ const Footer = () => (
           <h3 className="font-bold text-xl mb-4">company</h3>
         </li>
         {company.map((v) => (
-          <li key={uuid()} className="text-sm mb-3 indent-2">
-            <a href="#" className="hover:text-sky-400 duration-150 ease-in">
-              {v}
-            </a>
-          </li>
+          <Item text={v} id={uuid} />
         ))}
       </ul>
       <ul className="flex-1 list-none md:mt-2 sm:mt-2">
@@ -41,11 +36,7 @@ const Footer = () => (
           <h3 className="font-bold text-xl mb-4">products</h3>
         </li>
         {products.map((v) => (
-          <li key={uuid()} className="text-sm mb-3 indent-2">
-            <a href="#" className="hover:text-sky-400 duration-150 ease-in">
-              {v}
-            </a>
-          </li>
+          <Item text={v} id={uuid} />
         ))}
       </ul>
       <ul className="flex-1 list-none md:mt-2 sm:mt-2">
@@ -53,11 +44,7 @@ const Footer = () => (
           <h3 className="font-bold text-xl mb-4">global</h3>
         </li>
         {global.map((v) => (
-          <li key={uuid()} className="text-sm mb-3 indent-2">
-            <a href="#" className="hover:text-sky-400 duration-150 ease-in">
-              {v}
-            </a>
-          </li>
+          <Item text={v} id={uuid} />
         ))}
       </ul>
     </div>
@@ -74,17 +61,19 @@ const Footer = () => (
         ))}
       </div>
       <div className="flex flex-row items-center justify-end w-1/2">
-        <a href="" download={""} className="h-[12%] w-[26%] md:w-1/2 md:h-1/2 sm:w-1/2 sm:h-1/2 me-2 cursor-pointer">
-          <img
-            src={googleplay}
-            alt="googleplay badge"
-          />
+        <a
+          href=""
+          download={""}
+          className="h-[12%] w-[26%] md:w-1/2 md:h-1/2 sm:w-1/2 sm:h-1/2 me-2 cursor-pointer"
+        >
+          <img src={googleplay} alt="googleplay badge" />
         </a>
-        <a href="" download={""} className=" h-[10%] w-[23%] md:w-1/2 md:h-1/2 sm:w-1/2 sm:h-1/2 cursor-pointer">
-          <img
-            src={appstore}
-            alt="appstore badge"
-          />
+        <a
+          href=""
+          download={""}
+          className=" h-[10%] w-[23%] md:w-1/2 md:h-1/2 sm:w-1/2 sm:h-1/2 cursor-pointer"
+        >
+          <img src={appstore} alt="appstore badge" />
         </a>
       </div>
     </div>

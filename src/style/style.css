@@ -1,10 +1,7 @@
-:root{
-    --shadow-bg-hero: rgba(0, 0, 0, 0.93),
-    rgba(0, 0, 0, 0.74),
-    rgba(0, 0, 0, 0.54),
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.2);
-    --shadow-bg-hero2: rgba(4,9,30,0.7)
+:root {
+    --shadow-bg-hero: rgba(0, 0, 0, 0.93), rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.2);
+    --shadow-bg-hero2: rgba(4, 9, 30, 0.7);
 }
 
 * {
@@ -15,11 +12,15 @@
     /* font-family: 'Poppins', sans-serif !important; */
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
     display: none;
 }
 
-#bgHero1 , #bgHero2 , #bgHero3 , #bgHero4 , #bgHero5{
+#bgHero1,
+#bgHero2,
+#bgHero3,
+#bgHero4,
+#bgHero5 {
     max-width: 100%;
     height: 650px;
     background-size: cover;
@@ -28,49 +29,32 @@ html::-webkit-scrollbar{
 }
 
 #bgHero1 {
-    background-image: linear-gradient(
-            to right,
-            var(--shadow-bg-hero)
-        ),
-        url("../assets/bg/hero1.jpg");
+    background-image: linear-gradient(to right, var(--shadow-bg-hero)), url("../assets/bg/hero1.jpg");
 }
 
-#bgHero2{
-    background-image: linear-gradient(
-        var(--shadow-bg-hero2),
-        var(--shadow-bg-hero2)
-    ),
-    url("../assets/bg/hero1.jpg");
+#bgHero2 {
+    background-image: linear-gradient(var(--shadow-bg-hero2), var(--shadow-bg-hero2)), url("../assets/bg/hero1.jpg");
 }
 
-#bgHero3{
-    background-image: linear-gradient(
-        to right,
-        var(--shadow-bg-hero)
-    ),
-    url("../assets/bg/hero2.jpg");
+#bgHero3 {
+    background-image: linear-gradient(to right, var(--shadow-bg-hero)), url("../assets/bg/hero2.jpg");
 }
 
-#bgHero4{
-    background-image: linear-gradient(
-        to right,
-        var(--shadow-bg-hero)
-    ),
-    url("../assets/bg/hero4.jpg");
+#bgHero4 {
+    background-image: linear-gradient(to right, var(--shadow-bg-hero)), url("../assets/bg/hero4.jpg");
 }
 
-#bgHero5{
-    background-image: linear-gradient(
-        to right,
-        var(--shadow-bg-hero)
-    ),
-    url("../assets/bg/hero5.jpg");
+#bgHero5 {
+    background-image: linear-gradient(to right, var(--shadow-bg-hero)), url("../assets/bg/hero5.jpg");
 }
 
-#testimonial{
-    background-image: linear-gradient(
-        var(--shadow-bg-hero2),
-        var(--shadow-bg-hero2)
-    ),
-    url("../assets/bg/sebastien-jermer-n7DY58YFg9E-unsplash.jpg");
+#testimonial {
+    background-image: linear-gradient(var(--shadow-bg-hero2), var(--shadow-bg-hero2)),
+        url("../assets/bg/sebastien-jermer-n7DY58YFg9E-unsplash.jpg");
+}
+
+img[alt="main-logo"]:hover {
+    transition: all .3s ease-in-out;
+    /* background: red; */
+    filter: drop-shadow(0 0 8px rgb(56 189 248));
 }

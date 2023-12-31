@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <img
             src={reactLogo}
-            alt="logo"
+            alt="main-logo"
             className="h-[40px] w-[40px] rounded-full ms-4 animate-spin-slow inline"
           />
           <h1 className="text-xl md:text-lg sm:text-lg  inline font-poppins font-bold capitalize text-slate-50 ms-3 cursor-default">
@@ -62,22 +62,36 @@ const Navbar = () => {
         </ul>
         <div className=" 2xl:hidden xl:hidden lg:block md:block">
           {isOpen ? (
-            <MdClose className="text-3xl text-slate-100 cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
+            <div className="w-[50px] h-[50px] flex items-center rounded-full duration-300 ease-out active:bg-gray-600 bg-opacity-5">
+              <MdClose
+                className="text-3xl text-slate-100 cursor-pointer m-auto"
+                onClick={() => setTimeout(() => setIsOpen(!isOpen), 300)}
+              />              
+            </div>
           ) : (
-            <MdTableRows className="text-3xl text-slate-100 cursor-pointer" onClick={() => setIsOpen(!isOpen)}/>
+            <div className="w-[50px] h-[50px] flex items-center rounded-full duration-300 ease-out active:bg-gray-600 bg-opacity-5">
+              <MdTableRows
+                className="text-3xl text-slate-100 cursor-pointer m-auto"
+                onClick={() => setTimeout(() => setIsOpen(!isOpen), 300)}
+              />
+            </div>
           )}
         </div>
       </nav>
-        <ul className={`w-full bg-stone-950 p-6 flex flex-col items-center justify-center ${isOpen ? "block" : "hidden"} z-10 border-none -mt-2`}>
-          {navMenu.map((item) => (
-            <li
-              key={item.id}
-              className="text-center cursor-pointer text-white hover:text-sky-400 me-4 duration-150 ease-linear capitalize mb-3"
-            >
-              <a href={item.link}>{item.name}</a>
-            </li>
-          ))}
-          </ul>
+      <ul
+        className={`w-full bg-stone-950 p-6 flex flex-col items-center justify-center ${
+          isOpen ? "block" : "hidden"
+        } z-10 border-none -mt-2`}
+      >
+        {navMenu.map((item) => (
+          <li
+            key={item.id}
+            className="text-center cursor-pointer text-white hover:text-sky-400 me-4 duration-150 ease-linear capitalize mb-3"
+          >
+            <a href={item.link}>{item.name}</a>
+          </li>
+        ))}
+      </ul>
       <ProgressBar {...ProgressBarProps} />
       <ToTop />
     </div>

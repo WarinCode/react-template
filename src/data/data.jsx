@@ -381,3 +381,15 @@ export const socials = [
     id: getId(),
   },
 ];
+
+export const company = [
+  "about us",
+  "our offerings",
+  "newsroom",
+  "investors",
+  "blog",
+  "carers",
+  "AI",
+];
+export const products = ["ride", "drive", "eat"];
+export const global = ["safety", "diversity and inclusion"];
