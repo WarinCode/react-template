@@ -16,9 +16,8 @@ const getStars = (n) => {
   return starts;
 };
 
-const Food = ({ img, name, price, alt, rating, number, id }) => (
+const Food = ({ img, name, price, alt, rating, number }) => (
   <div
-    key={id}
     className="flex bg-zinc-900 rounded-xl shadow-2xl items-stretch justify-center gap-4 cursor-default overflow-hidden"
   >
     <div className=" flex-1 h-full self-center overflow-hidden relative">

@@ -7,25 +7,41 @@ const Form = () => {
   const [lastname, setLastname] = useState(null);
   const [email, setEmail] = useState(null);
 
-  const formRef = useRef();
   const message = useRef();
 
-  const api = import.meta.env.VITE_BACKEND_API.concat('/sentData')
+  const api = import.meta.env.VITE_BACKEND_API.concat("/sentData");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const options = {
+      method: "POST",
+      header: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        message: message.current.value,
+      }),
+    };
+
+    const response = await fetch(api, options);
+    const data = await response.text();
+    console.log(data);
+  };
 
   return (
     <section className="flex w-full h-max lg:flex-col md:flex-col sm:flex-col items-stretch font-poppins shadow-2xl">
       <div className="w-1/2 h-full lg:w-full md:w-full sm:w-full">
-        <img
-          src={img}
-          className="w-full h-full"
-          loading="lazy"
-        />
+        <img src={img} className="w-full h-full" loading="lazy" />
       </div>
       <form
-        method="post"
-        action={api}
+        // action={api}
+        // method="post"
+        onSubmit={(e) => handleSubmit(e)}
         className="w-1/2 lg:w-full md:w-full sm:w-full flex flex-col justify-center lg:-mt-1 md:-mt-1 sm:-mt-1 text-slate-100 capitalize p-[40px] tracking-wide bg-slate-950"
-        ref={formRef}
       >
         <div>
           <header className="text-center mb-12 text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold">
@@ -34,7 +50,10 @@ const Form = () => {
         </div>
         <div className=" flex items-center justify-between flex-wrap gap-x-6">
           <span className="flex-1">
-            <label htmlFor="firstname" className="block mb-2 font-bold text-xl md:text-lg sm:text-lg">
+            <label
+              htmlFor="firstname"
+              className="block mb-2 font-bold text-xl md:text-lg sm:text-lg"
+            >
               firstname
             </label>
             <input
@@ -51,7 +70,10 @@ const Form = () => {
             />
           </span>
           <span className="flex-1">
-            <label htmlFor="lastname" className="block mb-2 font-bold text-xl md:text-lg sm:text-lg">
+            <label
+              htmlFor="lastname"
+              className="block mb-2 font-bold text-xl md:text-lg sm:text-lg"
+            >
               lastname
             </label>
             <input
@@ -69,7 +91,10 @@ const Form = () => {
           </span>
         </div>
         <div className="mt-4">
-          <label htmlFor="email" className="block mb-2 font-bold text-xl md:text-lg sm:text-lg">
+          <label
+            htmlFor="email"
+            className="block mb-2 font-bold text-xl md:text-lg sm:text-lg"
+          >
             email
           </label>
           <input
@@ -86,7 +111,10 @@ const Form = () => {
           />
         </div>
         <div className="mt-4 w-full">
-          <label htmlFor="message" className="block mb-2 font-bold text-xl md:text-lg sm:text-lg">
+          <label
+            htmlFor="message"
+            className="block mb-2 font-bold text-xl md:text-lg sm:text-lg"
+          >
             message
           </label>
           <textarea

@@ -1,18 +1,21 @@
+import { useId } from "react";
 import { socials, company, products, global } from "../data/data";
-import uuid from "react-uuid";
 
 import googleplay from "../assets/download/google-play-badge.png";
 import appstore from "../assets/download/download-on-the-app-store-apple-logo-svgrepo-com.svg";
 
-const Item = ({ id, text }) => (
-  <li
-    key={id()}
-    className="text-sm mb-3 indent-2 duration-300 ease-in hover:translate-x-2"
-  >
+const Item = ({ text }) => (
+  <li className="text-sm mb-3 indent-2 duration-300 ease-in hover:translate-x-2">
     <a href="#" className="hover:text-sky-400 duration-300 ease-in">
       {text}
     </a>
   </li>
+);
+
+const Icon = ({ link, icon }) => (
+  <a className=" inline-flex m-auto w-12 h-12" href={link}>
+    {icon}
+  </a>
 );
 
 // Ref: https://www.datocms-assets.com/48294/1611758037-2-footer-web-from-uber.jpg?auto=format
@@ -28,7 +31,7 @@ const Footer = () => (
           <h3 className="font-bold text-xl mb-4">company</h3>
         </li>
         {company.map((v) => (
-          <Item text={v} id={uuid} />
+          <Item key={useId()} text={v} />
         ))}
       </ul>
       <ul className="flex-1 list-none md:mt-2 sm:mt-2">
@@ -36,7 +39,7 @@ const Footer = () => (
           <h3 className="font-bold text-xl mb-4">products</h3>
         </li>
         {products.map((v) => (
-          <Item text={v} id={uuid} />
+          <Item key={useId()} text={v} />
         ))}
       </ul>
       <ul className="flex-1 list-none md:mt-2 sm:mt-2">
@@ -44,20 +47,14 @@ const Footer = () => (
           <h3 className="font-bold text-xl mb-4">global</h3>
         </li>
         {global.map((v) => (
-          <Item text={v} id={uuid} />
+          <Item key={useId()} text={v} />
         ))}
       </ul>
     </div>
     <div className="flex flex-row items-center justify-between w-full mt-6 mb-4 gap-x-3">
       <div className=" w-1/2">
         {socials.map((item) => (
-          <a
-            key={item.id}
-            className=" inline-flex m-auto w-12 h-12"
-            href={item.link}
-          >
-            {item.icon}
-          </a>
+          <Icon key={item.id} icon={item.icon} link={item.link} />
         ))}
       </div>
       <div className="flex flex-row items-center justify-end w-1/2">
