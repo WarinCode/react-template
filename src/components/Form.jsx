@@ -6,30 +6,26 @@ const Form = () => {
   const [firstname, setFirstname] = useState(null);
   const [lastname, setLastname] = useState(null);
   const [email, setEmail] = useState(null);
-
-  const message = useRef();
-
-  const api = import.meta.env.VITE_BACKEND_API.concat("/sentData");
+  const [message, setMessage] = useState(null);
+  
+  const api = import.meta.env.VITE_BACKEND_API.concat(
+    `/sentData?firstname=${firstname}&lastname=${lastname}&email=${email}&message=${message}`
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const options = {
-      method: "POST",
+      method: "GET",
       header: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        message: message.current.value,
-      }),
     };
 
     const response = await fetch(api, options);
-    const data = await response.text();
-    console.log(data);
+    const data = await response.json();
+    const { firstname, lastname } = data
+    alert(`สวัสดีคุณ ${firstname} ${lastname} เราได้ทำการบันทึกข้อความของคุณเรียบร้อยแล้ว`)      
   };
 
   return (
@@ -38,9 +34,8 @@ const Form = () => {
         <img src={img} className="w-full h-full" loading="lazy" />
       </div>
       <form
-        // action={api}
-        // method="post"
         onSubmit={(e) => handleSubmit(e)}
+        ref={formRef}
         className="w-1/2 lg:w-full md:w-full sm:w-full flex flex-col justify-center lg:-mt-1 md:-mt-1 sm:-mt-1 text-slate-100 capitalize p-[40px] tracking-wide bg-slate-950"
       >
         <div>
@@ -123,7 +118,7 @@ const Form = () => {
             placeholder="Enter some text"
             className="resize-none w-full p-6 outline-none rounded-md border-none text-black text-sm placeholder:capitalize"
             required
-            ref={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
         <Button
