@@ -1,16 +1,45 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import Button from "./Button";
 import img from "../assets/bg/juli-kosolapova-EU-F64WOqD8-unsplash.jpg";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const Form = () => {
-  const [firstname, setFirstname] = useState(null);
-  const [lastname, setLastname] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [message, setMessage] = useState(null);
-  
-  const api = import.meta.env.VITE_BACKEND_API.concat(
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [data, setData] = useState("");
+
+  const fnameRef = useRef(null);
+  const lnameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+
+  const apiPath = import.meta.env.VITE_BACKEND_API.concat(
     `/sentData?firstname=${firstname}&lastname=${lastname}&email=${email}&message=${message}`
   );
+
+  const clearForm = () => {
+    fnameRef.current.value = "";
+    lnameRef.current.value = "";
+    emailRef.current.value = "";
+    messageRef.current.value = "";
+  };
+
+  const callback = useCallback(() => {
+    setTimeout(() => {
+      MySwal.fire({
+        icon: "success",
+        title: <h1>บันทึกแบบฟอร์มสำเร็จ</h1>,
+        text: data,
+        showConfirmButton: false,
+        timer: 1700,
+      });
+    }, 400);
+  }, [data]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,10 +51,15 @@ const Form = () => {
       },
     };
 
-    const response = await fetch(api, options);
-    const data = await response.json();
-    const { firstname, lastname } = data
-    alert(`สวัสดีคุณ ${firstname} ${lastname} เราได้ทำการบันทึกข้อความของคุณเรียบร้อยแล้ว`)      
+    try {
+      const response = await fetch(apiPath, options);
+      setData(await response.text());
+    } catch (e) {
+      console.error(e);
+    } finally {
+      clearForm();
+      callback();
+    }
   };
 
   return (
@@ -35,7 +69,6 @@ const Form = () => {
       </div>
       <form
         onSubmit={(e) => handleSubmit(e)}
-        ref={formRef}
         className="w-1/2 lg:w-full md:w-full sm:w-full flex flex-col justify-center lg:-mt-1 md:-mt-1 sm:-mt-1 text-slate-100 capitalize p-[40px] tracking-wide bg-slate-950"
       >
         <div>
@@ -62,6 +95,7 @@ const Form = () => {
               spellCheck={false}
               autoComplete={"false"}
               onChange={(e) => setFirstname(e.target.value)}
+              ref={fnameRef}
             />
           </span>
           <span className="flex-1">
@@ -82,6 +116,7 @@ const Form = () => {
               spellCheck={false}
               autoComplete={"false"}
               onChange={(e) => setLastname(e.target.value)}
+              ref={lnameRef}
             />
           </span>
         </div>
@@ -103,6 +138,7 @@ const Form = () => {
             spellCheck={false}
             autoComplete={"false"}
             onChange={(e) => setEmail(e.target.value)}
+            ref={emailRef}
           />
         </div>
         <div className="mt-4 w-full">
@@ -119,6 +155,7 @@ const Form = () => {
             className="resize-none w-full p-6 outline-none rounded-md border-none text-black text-sm placeholder:capitalize"
             required
             onChange={(e) => setMessage(e.target.value)}
+            ref={messageRef}
           ></textarea>
         </div>
         <Button
